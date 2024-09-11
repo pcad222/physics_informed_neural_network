@@ -1,0 +1,12 @@
+1.	COMSOL_B0.txt has positions and fields  generated from COMSOl.
+2.	Testcylinder_xyz.csv, has X_NEW, Y_NEW, Z_NEW found by using your code:
+a.	# R, PHI, Z_NEW = np.meshgrid(r_new, azi_new, z_new)
+b.	# X_NEW = R * np.cos(np.radians(PHI))
+c.	# Y_NEW = R * np.sin(np.radians(PHI))
+3.	Initial_df is the df of x, y,z, Bx, By , Bz found using RegularGridInterpolator
+4.	Mapper_df is same as initial_df, but noise can be added on mapper_df and to avoide the confusion, we write  positions column by 'mapper_x', 'mapper_y', 'mapper_z'
+
+6.
+7.	Cloudy_coordinates_df  of cloudy_x, cloudy_y, cloudy_z, are new locations, where we want to test physics equations,
+8.	combined_x = torch.cat([mapper_x, cloudy_x], dim=0), basically combined_x combines all the locations in the cell region to test physics equations
+
