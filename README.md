@@ -15,9 +15,15 @@ and
 
 The loss function is defined as:
 
-Loss = λ₁ *Loss_se_mapper + (λ2 * <∇⋅B^2> + λ3* <∇×B^2>)
+Loss = λ₁ *Loss_se_mapper + (λ2 * <∇⋅B^2> + λ3* <∇×B^2>).
+
 where:
+
 Loss = λ₁ (∑ (yᵢ - ŷᵢ)²) + λ₂ (⟨∇⋅B⟩²) + λ₃ (⟨∇×B⟩²)
 
 
 # Used Maxwell equations ∇·𝐵 = 0 and ∇×𝐵 = 0
+
+The model has been trained to generate the magnetic field components (Bx, By, Bz) not only at the mapper locations but also at the cloudy points within the precession cells. This training ensures that the conditions ∇·𝐵 = 0 and ∇×𝐵 = 0 are satisfied at all mapper locations and cloudy points
+
+
