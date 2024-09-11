@@ -5,11 +5,7 @@ We employ neural networks with two hidden layers to analyze the data collected f
 We have three input coordinates (x, y, z) at various locations, with corresponding magnetic field components( Bx, By, Bz)recorded at these  locations. Additionally, we include predefined cloudy points located within the upper and lower precession cells. Specifically, the x and y coordinates range from -25 cm to 25 cm, while the z coordinates vary from 5 cm to 15 cm for the upper cell and from -5 cm to -15 cm for the lower cell.The cloudy points are inside the precession cell only.
 
 # loss
-In the model we ∇·𝐵 = 0 and ∇×𝐵 = 0 and in terms of loss as loss= Loss = 𝜆_1 *mapper_mse_loss+ 𝜆_2* mean suared ∇.𝐵 + 𝜆_2* mean suared ∇x𝐵
-
-Loss = 𝜆_1 (𝑦_𝑖−𝑦 ̂_𝑖)^2 + 𝜆_2 (<∇.𝐵^2>  >+𝜆_3 (<∇ 𝑋 𝐵)^2>
-
-In the model, we apply the Maxwell equations:
+In the model, which can predict mabagnetic fields within the intermediate region of the cell,  we apply the Maxwell equations:
 
 ∇⋅B = 0
 
@@ -19,12 +15,9 @@ and
 
 The loss function is defined as:
 
-Loss = λ₁ Loss_{mse_mapper} + (λ₁ Loss_{∇⋅B} + λ₂ Loss_{∇×B})
-
+Loss = λ₁ *Loss_se_mapper + (λ2 * <∇⋅B^2> + λ3* <∇×B^2>)
 where:
-
 Loss = λ₁ (∑ (yᵢ - ŷᵢ)²) + λ₂ (⟨∇⋅B⟩²) + λ₃ (⟨∇×B⟩²)
-
 
 
 # Used Maxwell equations ∇·𝐵 = 0 and ∇×𝐵 = 0
